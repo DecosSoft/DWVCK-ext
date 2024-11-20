@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "DWVCK-ext",
+  "version": "1.0.0",
+  "version_name": "v1.0.0-beta1",
+  "description": "Chrome/Firefox extension for pen-testing to retrieve encryption keys of Widevine protected content. Slightly modified version of FoxRefire\u0027s extension.\n\n¡DON\u0027T DECRYPT CONTENT UNLESS YOU HAVE THE RIGHT TO DO IT!",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "\u003call_urls\u003e",
+    "activeTab",
+    "storage",
+    "tabs",
+    "contextMenus"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": [
+        "\u003call_urls\u003e"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "all_frames": true
+    }
+  ],
+  "browser_action": {
+    "default_title": "Widevine Decrypter"
+  },
+  "web_accessible_resources": [
+    "inject.js"
+  ],
+  "content_security_policy": "script-src \u0027self\u0027 \u0027unsafe-eval\u0027; object-src \u0027self\u0027"
+}
