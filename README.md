@@ -1,4 +1,4 @@
-## WVGuesserExtension-NextGen
+## DWVCK-ext (Download WV Clearkeys Extensio)
 
 #### For more details, see [docs](https://github.com/FoxRefire/wvg/wiki)
 
