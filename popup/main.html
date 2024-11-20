@@ -1,0 +1,221 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta20
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DWVCK-ext</title>
+    <!-- CSS files -->
+    <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet" />
+    <!-- <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet"/>
+                                                                                                                                    <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
+                                                                                                                                    <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
+                                                                                                                                   <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/> -->
+
+    <style>
+@import url('https://rsms.me/inter/inter.css');
+:root {
+        --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    }
+        body {
+            font-feature-settings: "cv03", "cv04", "cv11";
+        }
+    </style>
+
+    <script src="/libs/pyodide/pyodide.js"></script>
+</head>
+<body>
+    <div class="page">
+        <div class="page-wrapper">
+            <!-- Page body -->
+            <div class="page-body">
+                <div class="container-xl">
+                    <div class="row row-cards">
+                        <div id="noEME" class="col-lg-6 col-lg-3">
+                            <div class="card bg-warning-lt text-body-fg">
+                                <div class="card-stamp">
+                                    <div class="card-stamp-icon bg-white text-primary">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-alert-triangle"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 9v4" /><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 16h.01" /></svg>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="card-title">Widevine content hasn't detected in this page.</h3>
+                                    <h4 class="text-primary">
+                                        Open widevine-protected website and try again!
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="home" class="hidden">
+                            <form class="card" id="wvForm">
+                                <div class="card-header">
+                                    <h4 class="card-title text-primary">DWVCK-ext</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label class="form-label text-primary">Manifest Url:</label>
+                                        <div>
+                                            <input type="text" class="form-control" placeholder="manifest url">
+                                            <small class="form-hint">
+                                                Your password must be 8-20 characters long, contain letters and numbers, and must not contain
+                                                spaces, special characters, or emoji.
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="license" class="form-label required">License Url:</label>
+                                        <div class="input-group mb-2">
+                                            <input type="text" id="license" class="form-control" placeholder="license url" disabled>
+                                            <button id="licenseButton" class="btn" type="button" value="Select">Select</button>
+                                        </div>
+                                        <small class="form-hint">We'll never share your email with anyone else.</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pssh" class="form-label required"> Pssh Box:</label>
+                                        <div class="input-group mb-2">
+                                            <input type="text" id="pssh" class="form-control" placeholder="pssh box" disabled>
+                                            <button id="psshButton" class="btn" type="button" value="Select">Select</button>
+                                        </div>
+                                        <small class="form-hint">We'll never share your email with anyone else.</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-label">
+                                            Challenge Scheme:
+                                        </div>
+                                        <select id="schemeSelect" class="form-select">
+                                            <option value="Amazon">Amazon</option>
+                                            <option value="Allente">Allente</option>
+                                            <option value="CanalPlusVOD">CanalPlus (VOD)</option>
+                                            <option value="CanalPlusLive">CanalPlus (Live)</option>
+                                            <option value="Comcast">Comcast Xfinity</option>
+                                            <option value="CommonWV" selected>CommonWV</option>
+                                            <option value="DRMToday">DRMToday</option>
+                                            <option value="Fantop">Fantop</option>
+                                            <option value="GlobalTV">GlobalTV</option>
+                                            <option value="Heuristic">Heuristic</option>
+                                            <option value="moTV">moTV</option>
+                                            <option value="NosTV">NosTV</option>
+                                            <option value="oqee">Oqee</option>
+                                            <option value="PolSatBoxGo">PolSatBoxGo</option>
+                                            <option value="RedBee">Red Bee Media</option>
+                                            <option value="Sling">Sling</option>
+                                            <option value="thePlatform">thePlatform</option>
+                                            <option value="VdoCipher">VdoCipher</option>
+                                            <option value="VUDRM">VUDRM</option>
+                                            <option value="Vodafone">Vodafone</option>
+                                            <option value="Youku">Youku</option>
+                                            <option value="YouTube">YouTube</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 text-center">
+                                        <button type="button" id="editSchemeButton" class="btn btn-tabler w-50">
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/brand-tabler -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+                                            Edit
+                                        </button>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <button type="submit" id="guess" class="btn btn-tabler w-100">
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/brand-tabler -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 9l3 3l-3 3" /><path d="M13 15l3 0" /><path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /></svg>
+                                            Press To See The Magic!
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="result" class="form-label">Results:</label>
+                                        <textarea id="result" class="form-control" data-bs-toggle="autosize" placeholder="" disabled></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="ckHome" class="hidden">
+                        <h3>Clearkey detected</h3>
+                        <div class="mb-3">
+                            <label for="ckResult" class="form-label">Results:</label>
+                            <textarea id="ckResult" class="form-control" data-bs-toggle="autosize" placeholder=""></textarea>
+                        </div>
+                    </div>
+                    <div id="chooserContainer" class="hidden">
+                        <div class="mb-3">
+                            <label class="form-label">Select One:</label>
+                            <div class="input-icon mb-3">
+                                <input id="chooserSearch" type="text" class="form-control" placeholder="search">
+                                <ul id="items"></ul>
+                                <span class="input-icon-addon">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="editSchemeContainer" class="hidden">
+                        <textarea id="schemeCode" class="form-control" data-bs-toggle="autosize" placeholder=""></textarea>
+                    </br>
+                    <div class="card-footer text-center">
+                        <button type="button" id="editSchemeOK" class="btn btn-tabler w-50">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/brand-tabler -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <br>
+                    <a href="./history.html" class="btn btn-vk w-20 h-25">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/brand-vk -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-history"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 8l0 4l2 2" /><path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" /></svg>
+                        Show History
+                    </a>
+                </div>
+                <footer class="footer footer-transparent d-print-none">
+                    <div class="container-xl">
+                        <div class="row text-center align-items-center flex-row-reverse">
+                            <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                                <ul class="list-inline list-inline-dots mb-0">
+                                    <li class="list-inline-item">
+                                        DecosSoft slightly modified version of <a href="https://github.com/FoxRefire/wvg/archive/refs/heads/next.zip">FoxRefire's</a> extension.
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="link-secondary" rel="noopener">
+                                            v1.0.0-beta1
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item hidden">
+                                        Version =VER= update available! <a href="https://github.com/FoxRefire/wvg/archive/refs/heads/next.zip">Download</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Libs JS -->
+<!--
+                                                                            <script src="./dist/libs/apexcharts/dist/apexcharts.min.js?1692870487" defer></script>
+                                                                            <script src="./dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487" defer></script>
+                                                                            <script src="./dist/libs/jsvectormap/dist/maps/world.js?1692870487" defer></script>
+                                                                            <script src="./dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487" defer></script>
+                                                                            -->
+<!-- Tabler Core -->
+<script src="./dist/js/tabler.min.js?1692870487" defer></script>
+</body>
+<script src="./main.js" type="module"></script>
+<script src="./drawList.js"></script>
+<script src="./editScheme.js"></script>
+<script src="./updateNotice.js"></script>
+</html>

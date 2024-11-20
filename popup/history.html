@@ -1,0 +1,110 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta20
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DWVCK-ext</title>
+    <!-- CSS files -->
+    <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet" />
+    <!--
+                    <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet"/>
+                    <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
+                    <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
+                    <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/>
+                    -->
+    <style>
+@import url('https://rsms.me/inter/inter.css');
+:root {
+        --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    }
+        body {
+            font-feature-settings: "cv03", "cv04", "cv11";
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Page body -->
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title text-primary">DWVCK-ext</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="history" class="row align-items-center">
+                            <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
+                                <a href="#" id="saveHistory" class="btn btn-tabler w-100">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/brand-tabler -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-device-floppy"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2" /><path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M14 4l0 4l-6 0l0 -4" /></svg>
+                                    SAVE
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
+                                <a href="#" id="clearHistory" class="btn btn-youtube w-100">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/brand-youtube -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7h16" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /><path d="M10 12l4 4m0 -4l-4 4" /></svg>
+                                    CLEAR
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-2 col-xl-auto py-3">
+                                <a href="./main.html" id="backHistory" class="btn btn-rss w-100">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/brand-youtube -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-back"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1" /></svg>
+                                    BACK
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="histDisp" class="col-xl-auto py-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer footer-transparent d-print-none">
+        <div class="container-xl">
+            <div class="row text-center align-items-center flex-row-reverse">
+
+                <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                    <ul class="list-inline list-inline-dots mb-0">
+                        <li class="list-inline-item">
+                            DecosSoft slightly modified version of <a href="https://github.com/FoxRefire/wvg/archive/refs/heads/next.zip">FoxRefire's</a> extension.
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="./changelog.html" class="link-secondary" rel="noopener">
+                                v1.0.0-beta1
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Libs JS -->
+    <!--
+            <script src="./dist/libs/apexcharts/dist/apexcharts.min.js?1692870487" defer></script>
+            <script src="./dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487" defer></script>
+            <script src="./dist/libs/jsvectormap/dist/maps/world.js?1692870487" defer></script>
+            <script src="./dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487" defer></script>
+            -->
+    <!-- Tabler Core -->
+    <script src="./dist/js/tabler.min.js?1692870487" defer></script>
+</body>
+<script src="/libs/jsonview.js"></script>
+<script src="./history.js"></script>
+</html>
