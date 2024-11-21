@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "DWVCK-ext",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "version_name": "v1.0.0-beta1",
   "description": "Chrome/Firefox extension for pen-testing to retrieve encryption keys of Widevine protected content. Slightly modified version of FoxRefire\u0027s extension.\n\n¡DON\u0027T DECRYPT CONTENT UNLESS YOU HAVE THE RIGHT TO DO IT!",
   "icons": {
